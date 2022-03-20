@@ -4,10 +4,8 @@ import './index.less';
 
 export default function Loading() {
   return (
-    <div className='loading'>
-      <Spin tip='加载中'>
-
-      </Spin>
+    <div className="loading">
+      <Spin tip="加载中"></Spin>
     </div>
   );
 }

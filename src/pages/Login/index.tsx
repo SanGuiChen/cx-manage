@@ -15,21 +15,21 @@ export default function Login() {
   };
 
   return (
-    <div className='login-bg'>
-      <div className='login'>
-        <div className='login-logo'>
-          <img src={logo} alt="" height={50}/>
+    <div className="login-bg">
+      <div className="login">
+        <div className="login-logo">
+          <img src={logo} alt="" height={50} />
           <span>Sundesign</span>
         </div>
 
         <Form
-        name="basic"
-        labelCol={{ span: 8 }}
-        wrapperCol={{ span: 16 }}
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
+          name="basic"
+          labelCol={{ span: 8 }}
+          wrapperCol={{ span: 16 }}
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
         >
           <Form.Item
             name="username"
@@ -52,7 +52,7 @@ export default function Login() {
           </Form.Item>
 
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button type="primary" htmlType="submit" style={{width: '100%'}}>
+            <Button type="primary" htmlType="submit" style={{ width: '100%' }}>
               登录
             </Button>
           </Form.Item>
