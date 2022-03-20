@@ -1,6 +1,6 @@
 import React from 'react'
 import { Spin } from 'antd';
-import './Loading.less'
+import './index.less'
 
 export default function Loading() {
   return (

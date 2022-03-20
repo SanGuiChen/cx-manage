@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react'
 import App from "App";
-import Loading from 'components/Loading/Loading';
+import Loading from 'components/Loading';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 interface IRoute {
@@ -16,8 +16,8 @@ const routerArr: IRoute[] = [
       { path: '/edit', component: lazy(() => import('pages/Edit')) },
       { path: '/means', component: lazy(() => import('pages/Means')) },
   ] },
-  { path: '/login', component: lazy(() => import('pages/Login/Login')) },
-  { path: '/register',component: lazy(() => import('pages/Register/Register')) },
+  { path: '/login', component: lazy(() => import('pages/Login')) },
+  { path: '/register',component: lazy(() => import('pages/Register')) },
 ]
 
 const MyRouter = () => (

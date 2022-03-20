@@ -1,5 +1,5 @@
 import React from 'react'
-import Editor from 'components/Editor/Editor'
+import Editor from 'components/Editor'
 
 export default function Edit() {
   return (

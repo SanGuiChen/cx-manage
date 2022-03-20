@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { Form, Input, Button } from 'antd';
-import './login.less'
+import './index.less'
 
 const logo = require('assets/images/sun.png')
 
