@@ -1,9 +1,9 @@
-import React from 'react'
-import './index.less'
+import React from 'react';
+import './index.less';
 import { Menu, Dropdown, Avatar } from 'antd';
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
 
-const logo = require('assets/images/sun.png')
+const logo = require('assets/images/sun.png');
 
 export default function MyHeader() {
   const menu = (
@@ -31,5 +31,5 @@ export default function MyHeader() {
         </a>
       </Dropdown>
     </header>
-  )
+  );
 }

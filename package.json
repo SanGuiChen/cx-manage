@@ -68,7 +68,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "lint:script": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint-fix:script": "npm run lint:script -- --fix"
   },
   "eslintConfig": {
     "extends": [
@@ -143,9 +145,10 @@
     ]
   },
   "devDependencies": {
-    "@umijs/fabric": "^2.10.2",
+    "@typescript-eslint/eslint-plugin": "^5.15.0",
+    "@typescript-eslint/parser": "^5.15.0",
     "eslint": "^8.11.0",
-    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
     "prettier": "^2.6.0",
     "stylelint": "^14.6.0",
     "wangeditor": "^4.7.12"

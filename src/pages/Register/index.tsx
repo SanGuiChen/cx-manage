@@ -1,16 +1,16 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Input, Button } from 'antd';
-import './index.less'
+import './index.less';
 
-const logo = require('assets/images/sun.png')
+const logo = require('assets/images/sun.png');
 
 export default function Login() {
-  const onFinish = (values: any) => {
+  const onFinish = (values: unknown) => {
     console.log('Success:', values);
   };
 
-  const onFinishFailed = (errorInfo: any) => {
+  const onFinishFailed = (errorInfo: unknown) => {
     console.log('Failed:', errorInfo);
   };
 
@@ -67,5 +67,5 @@ export default function Login() {
         </Form>
       </div>
     </div>
-  )
+  );
 }

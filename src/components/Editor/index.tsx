@@ -1,27 +1,27 @@
 import { SetStateAction, useEffect, useState } from 'react';
 import { PageHeader, Button } from 'antd';
-import E from 'wangeditor'
+import E from 'wangeditor';
 
-let editor: E | null = null
+let editor: E | null = null;
 const Editor = () => {
   const [content, setContent] = useState("");
   console.log(content);
 
   useEffect(() => {
     // 实例化
-    editor = new E("#myeditor")
+    editor = new E("#myeditor");
 
     editor.config.onchange = (newHtml: SetStateAction<string>) => {
       setContent(newHtml);
-    }
+    };
 
     // 创建
-    editor.create()
+    editor.create();
 
     return () => {
       // 组件销毁时销毁编辑器
-      editor?.destroy()
-    }
+      editor?.destroy();
+    };
     // eslint-disable-next-line
   }, [])
 
@@ -39,6 +39,6 @@ const Editor = () => {
       <div id="myeditor"></div>
     </div>
   );
-}
+};
 
 export default Editor;

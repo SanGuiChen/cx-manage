@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { Spin } from 'antd';
-import './index.less'
+import './index.less';
 
 export default function Loading() {
   return (
@@ -9,5 +9,5 @@ export default function Loading() {
 
       </Spin>
     </div>
-  )
+  );
 }

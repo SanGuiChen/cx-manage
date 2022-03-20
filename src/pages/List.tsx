@@ -1,5 +1,5 @@
-import React from 'react'
-import { Table, Button } from 'antd'
+import React from 'react';
+import { Table, Button } from 'antd';
 
 const columns = [
   {
@@ -25,8 +25,8 @@ const TitleComp = () => {
       <div><a href="!#">标题</a></div>
       <p style={{color: '#999'}}>副标题</p>
     </>
- )
-}
+ );
+};
 
 const ActionBtn = () => {
   return (
@@ -34,9 +34,9 @@ const ActionBtn = () => {
       <Button type='primary' style={{marginRight: '10px'}}>编辑</Button>
       <Button type='primary' danger>删除</Button>
     </>
-  )
+  );
 
-}
+};
 
 interface IData {
   key: number,
@@ -60,5 +60,5 @@ export default function List() {
     <Table showHeader={false} columns={columns} dataSource={data}>
 
     </Table>
-  )
+  );
 }

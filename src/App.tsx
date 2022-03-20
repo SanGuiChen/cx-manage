@@ -1,10 +1,10 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import { EditOutlined, ReadOutlined, UsergroupAddOutlined, HighlightOutlined, SelectOutlined } from '@ant-design/icons';
-import Header from 'components/Header'
-import Footer from 'components/Footer'
-import './App.less'
+import Header from 'components/Header';
+import Footer from 'components/Footer';
+import './App.less';
 
 
 const { SubMenu } = Menu;
@@ -45,5 +45,5 @@ export default function App() {
       </Layout>
       <Footer />
     </Layout>
-  )
+  );
 }
