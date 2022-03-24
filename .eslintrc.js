@@ -25,6 +25,7 @@ module.exports = {
     semi: ['error', 'always'],
     '@typescript-eslint/no-var-requires': 0,
     "react-hooks/rules-of-hooks": "error", // 检查 hooks 规则
-    "react-hooks/exhaustive-deps": "warn"  // 检查 effect 的依赖
+    "react-hooks/exhaustive-deps": "warn",  // 检查 effect 的依赖
+    "@typescript-eslint/no-explicit-any": ["off"]
   }
 };

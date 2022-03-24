@@ -1,17 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Form, Input, Button } from 'antd';
+import { Form, Input, Button, message } from 'antd';
 import './index.less';
+import { RegisterApi } from 'utils/http/api';
 
 const logo = require('assets/images/sun.png');
 
 export default function Login() {
-  const onFinish = (values: unknown) => {
-    console.log('Success:', values);
-  };
-
-  const onFinishFailed = (errorInfo: unknown) => {
-    console.log('Failed:', errorInfo);
+  const onFinish = (values: any) => {
+    const { username, password } = values;
+    RegisterApi({ username, password })
+      .then((res: any) => {
+        if (res.errCode === 0) message.success(res.message);
+        else message.error(res.message);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -28,7 +33,6 @@ export default function Login() {
           wrapperCol={{ span: 16 }}
           initialValues={{ remember: true }}
           onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
           <Form.Item
@@ -50,7 +54,19 @@ export default function Login() {
           <Form.Item
             name="ConfirmPassword"
             label="确认密码"
-            rules={[{ required: true, message: '请输入确认密码!' }]}
+            dependencies={['password']}
+            hasFeedback
+            rules={[
+              { required: true, message: '请输入确认密码!' },
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  if (!value || getFieldValue('password') === value) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject(new Error('前后两次密码不一致!'));
+                }
+              })
+            ]}
           >
             <Input.Password />
           </Form.Item>
@@ -61,7 +77,7 @@ export default function Login() {
 
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type="primary" htmlType="submit" style={{ width: '100%' }}>
-              登录
+              立即注册
             </Button>
           </Form.Item>
         </Form>

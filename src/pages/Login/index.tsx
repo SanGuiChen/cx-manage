@@ -1,17 +1,37 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Form, Input, Button } from 'antd';
+import { Link, useNavigate } from 'react-router-dom';
+import { Form, Input, Button, message } from 'antd';
 import './index.less';
+import { LoginApi } from 'utils/http/api';
 
 const logo = require('assets/images/sun.png');
 
 export default function Login() {
-  const onFinish = (values: unknown) => {
-    console.log('Success:', values);
-  };
+  const navigate = useNavigate();
 
-  const onFinishFailed = (errorInfo: unknown) => {
-    console.log('Failed:', errorInfo);
+  const onFinish = (values: any) => {
+    const { username, password } = values;
+    LoginApi({ username, password })
+      .then((res: any) => {
+        console.log(res);
+        if (res.errCode === 0) {
+          message.success(res.message);
+          const { avatar, editable, player, username } = res.data;
+          // 存储数据
+          localStorage.setItem('avatar', avatar);
+          localStorage.setItem('editable', editable);
+          localStorage.setItem('player', player);
+          localStorage.setItem('username', username);
+          localStorage.setItem('cms-token', res.data['cms-token']);
+          // 跳转到根路径
+          setTimeout(() => {
+            navigate('/');
+          }, 1500);
+        } else message.error(res.message);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -28,7 +48,6 @@ export default function Login() {
           wrapperCol={{ span: 16 }}
           initialValues={{ remember: true }}
           onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
           autoComplete="off"
         >
           <Form.Item
